@@ -10,7 +10,7 @@
             --secondary-color: #FFA500;
             --bg-color: #FAF6F0; /* 溫暖奶油色底 */
             --card-bg: #FFFFFF;
-            --text-color: #5A4B41; /* 溫柔的深咖啡色文字，更具手繪漫畫感 */
+            --text-color: #5A4B41; /* 溫柔的深咖啡色文字，具手繪漫畫感 */
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -55,7 +55,7 @@
             font-weight: 800;
         }
         
-        /* Q版插圖卡片 */
+        /* 視覺插圖區 */
         .illustration-box {
             width: 100%;
             height: 200px;
@@ -72,7 +72,7 @@
         .illustration-box img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* 確保Q版插圖不被切到 */
+            object-fit: cover; /* 滿版溫馨感 */
             background-color: #FFFDF9;
         }
 
@@ -165,8 +165,8 @@
         <h1>安全感防禦人格檢測</h1>
         
         <div class="illustration-box">
-            <!-- 溫馨Q版手繪大合照/保護防禦風格 -->
-            <img src="https://img.freepik.com/free-vector/hand-drawn-family-scenes-illustration_23-2150186981.jpg" alt="防禦檢測首頁">
+            <!-- 封面：精緻手繪風溫馨屋子/守護家園插圖 -->
+            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" alt="防禦檢測首頁">
         </div>
 
         <p style="line-height: 1.6; color: #6B5B52; font-size: 0.95rem; margin-top: 5px;">
@@ -184,7 +184,7 @@
             <span id="progress-number" class="progress-text">1/6</span>
         </div>
         
-        <!-- 動態Q版插圖區 -->
+        <!-- 動態Q版/手繪插圖區 -->
         <div class="illustration-box">
             <img id="question-img" src="" alt="情境圖">
         </div>
@@ -218,11 +218,11 @@
 </div>
 
 <script>
-    // 溫馨漫畫/Q版情境圖片
+    // 使用 Unsplash 手繪/插畫風高畫質無防盜連連結，確保完美呈現
     const questions = [
         { 
             q: "Q1. 走在路上不幸踢到鐵板骨折，躺在醫院病床上時，你的大腦第一時間在想...", 
-            imgUrl: "https://img.freepik.com/free-vector/people-with-broken-limbs-cartoon-illustration_107791-16987.jpg", // Q版骨折受傷插圖
+            imgUrl: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=600", // 舒緩、療癒手繪感插圖
             options: [
                 { text: "😢 完了，聽說單人房一天要貼好幾千，我還是去睡健保房或走廊好了...", score: 1 }, 
                 { text: "😎 沒差，我有保險神隊友！給我來一間陽光灑落的單人房！", score: 0 }
@@ -230,7 +230,7 @@
         },
         { 
             q: "Q2. 醫生遞過來一張同意書，建議你自費 20 萬做最新型微創手術，你第一眼盯著看的是...", 
-            imgUrl: "https://img.freepik.com/free-vector/cartoon-doctor-examining-patient-with-stethoscope-hospital_107791-17154.jpg", // Q版醫生病人互動插圖
+            imgUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600", // 設計與諮詢手繪質感插圖
             options: [
                 { text: "😨 那排晃眼的『金額欄』...想問醫生有沒有健保全額給付的傳統手術？", score: 1 }, 
                 { text: "💳 當然是『傷口小、恢復快』的說明！反正有實支實付，健康第一！", score: 0 }
@@ -238,7 +238,7 @@
         },
         { 
             q: "Q3. 剛領完薪水，看著自己戶頭裡那筆「未來教育/買房基金」，你會如何管理它？", 
-            imgUrl: "https://img.freepik.com/free-vector/cute-piggy-bank-with-coins-cartoon-illustration_107791-17215.jpg", // Q版可愛豬豬儲蓄罐
+            imgUrl: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&q=80&w=600", // 存錢/手帳彩繪風格
             options: [
                 { text: "🏦 放在一般帳戶隨時會被我不小心刷掉，甚至被通膨默默吃掉...", score: 1 }, 
                 { text: "🔒 鎖在有穩定增值、強迫儲蓄的年金險或專屬帳戶，誰都別想動它！", score: 0 }
@@ -246,7 +246,7 @@
         },
         { 
             q: "Q4. 提到「為自己規劃被動收入/退休生活」這件事，你最真實的現狀是...", 
-            imgUrl: "https://img.freepik.com/free-vector/happy-elderly-couple-beach-cartoon_107791-16889.jpg", // Q版老夫妻在沙灘悠閒度假
+            imgUrl: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=600", // 悠閒午後咖啡/漫畫感咖啡杯
             options: [
                 { text: "💭 有打算啦...但每個月卡費和生活開銷扣完，就打算下個月再說了。", score: 1 }, 
                 { text: "📈 有在實施中！無論是定期定額還是儲蓄型年金，默默在蓋財務地基！", score: 0 }
@@ -254,7 +254,7 @@
         },
         { 
             q: "Q5. 突然驚覺身邊好幾個朋友都開始做健康檢查、甚至有人生病，你的反應是...", 
-            imgUrl: "https://img.freepik.com/free-vector/doctor-showing-checklist-patient-cartoon-illustration_107791-17011.jpg", // Q版健檢報告核對插圖
+            imgUrl: "https://images.unsplash.com/photo-1484480974693-2ca0a72af3a8?auto=format&fit=crop&q=80&w=600", // 清單 checklist 手繪風插圖
             options: [
                 { text: "🫣 鴕鳥心態，不敢看自己的健康和保障，深怕看到赤裸裸的缺口。", score: 1 }, 
                 { text: "🛡️ 預防勝於治療，定期把現有保障拉出來健檢，跟上最新醫療水準！", score: 0 }
@@ -262,7 +262,7 @@
         },
         { 
             q: "Q6. 對於「財務自由」這四個字，你腦海中浮現的終極浪漫畫面是...", 
-            imgUrl: "https://img.freepik.com/free-vector/happy-man-relaxing-hammock-cartoon-illustration_107791-16556.jpg", // Q版吊床放鬆享受生活
+            imgUrl: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=600", // 清新自然陽光灑落森林插畫風格（呼應你最愛的陽光感！）
             options: [
                 { text: "🍟 點麥當勞直接升級大薯，不用看價錢就覺得很爽了！", score: 1 }, 
                 { text: "🏡 退休後每個月有一筆「穩定的現金流」自動入帳，天天自然醒！", score: 2 }
@@ -324,17 +324,17 @@
             title = "【極光探險家】";
             desc = "你對生活充滿夢想，熱愛當下，但目前的財務與保障防禦地基就像蕾絲一樣單薄！一旦生活中遇到突發的醫療開支或需要自費時，很容易影響你追求自由的腳步。別擔心！芝心建議你及早健檢「實支實付醫療缺口」，並透過穩定工具打造未來的被動現金流。跟芝心一起動手，把你的蕾絲網升級成超強安全防護網吧！";
             lineMsg = "嗨！芝心～我測出來是【極光探險家】✨ 想跟妳聊聊怎麼檢視我的醫療保障，還有幫自己存出一筆穩定的退休現金流！";
-            resultImg = "https://img.freepik.com/free-vector/astronaut-floating-space-cartoon-illustration_107791-17025.jpg"; // Q版太空人探險
+            resultImg = "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=600"; // 太空探險/夢想星空手繪風
         } else if (score >= 2) {
             title = "【鋼鐵築路人】";
             desc = "你非常有安全意識，也有一定的保障底子，懂得為下雨天做準備。不過，現在最新的醫療科技日新月異（很多新型手術和藥物自費額高得嚇人），你手上的防禦工具可能有點「跟不上時代」了。面對高額自費以及未來退休的源源不絕現金流，可能還有一些肉眼看不見的小缺口。讓芝心幫你稍微做個檢診微調，你的財務與保障地基就會非常完美！";
             lineMsg = "嗨！芝心～我測出來是【鋼鐵築路人】🧱 想請妳幫我做個財務地基健康檢查，微調我的保障跟退休被動收入！";
-            resultImg = "https://img.freepik.com/free-vector/constructor-worker-building-wall-cartoon-illustration_107791-16913.jpg"; // Q版建築工人鋪路築牆
+            resultImg = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600"; // 手繪建築/構築地基風格
         } else {
             title = "【城堡領主】";
             desc = "太優秀了！你的風險防護與財務觀念都超級好，基本上已經穩穩走在安心退休與充分保障的黃金軌道上。身為城堡領主，你的護城河已經相當深厚，芝心建議你可以定期做個合約與保障檢視，看看有沒有需要針對最新的醫療科技（例如癌症最新精密療法）進行微幅升級，確保你的城堡防禦力永遠保持在滿格狀態！";
             lineMsg = "嗨！芝心～我測出來是【城堡領主】🏰 我的保障好像蠻完整的，想找妳幫我做個定期檢視，看看有沒有漏掉最新的醫療保障！";
-            resultImg = "https://img.freepik.com/free-vector/cute-castle-fairytale-cartoon-illustration_107791-16781.jpg"; // Q版可愛童話城堡
+            resultImg = "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=600"; // 精緻手繪城堡建築
         }
 
         document.getElementById('result-title').innerText = title;
@@ -343,7 +343,7 @@
         const resImgEl = document.getElementById('result-img');
         resImgEl.src = resultImg;
         
-        // 你的 Line ID ＠221hssks
+        // LINE 官方帳號 ID：@221hssks
         const lineID = "@221hssks"; 
         const myLineLink = "https://line.me/R/ti/p/" + lineID + "?text=" + encodeURIComponent(lineMsg);
         
