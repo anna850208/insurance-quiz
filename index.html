@@ -70,10 +70,7 @@
             line-height: 1.4;
         }
 
-        /* 
-           【純 CSS 打造 Q版粉彩插畫舞台】
-           100% 拔除 <img> 標籤，徹底杜絕破圖框，僅保留純圓形色塊與 Emoji 
-        */
+        /* 插畫舞台（100% 杜絕破圖框） */
         .illustration-stage {
             width: 100%;
             height: 150px;
@@ -278,8 +275,8 @@
 
         <div id="result-desc" class="result-box"></div>
         
-        <!-- LINE 導流按鈕（全新直達 Deep Link） -->
-        <a id="line-link" href="#" target="_blank" style="text-decoration: none;">
+        <!-- LINE 導流按鈕（已修改為 100% 絕對能進入官方好友畫面的專用格式） -->
+        <a id="line-link" href="https://line.me/ti/p/@221hssks" target="_blank" style="text-decoration: none;">
             <button class="btn" style="background: linear-gradient(135deg, #02b348, #06C755); border-bottom: 4px solid #009933; box-shadow: 0 6px 15px rgba(6, 199, 85, 0.25);">
                 💬 敲「芝心」聊聊我的人格秘密
             </button>
@@ -351,22 +348,19 @@
             title: "【極光探險家】✨",
             desc: "<b>冒險路上，你的防禦地基可能還是薄蕾絲。</b><br><br>你對生活充滿夢想，熱愛享受當下。但目前你的「保障安全網」防護力有點單薄。一旦遇到突發的自費醫療，很容易影響到你前進的腳步。別怕！跟著芝心一起健檢「實支實付醫療缺口」，並透過穩定工具打造月月現金流。把你的蕾絲網升級成超強安全防護罩吧！",
             avatar: "🚀🌌",
-            bgColor: "#ECEFF1",
-            lineMsg: "嗨！芝心～我測出來是【極光探險家】✨ 想跟妳聊聊怎麼檢視我的醫療保障，還有幫自己存出一筆穩定的退休現金流！"
+            bgColor: "#ECEFF1"
         },
         B: {
             title: "【鋼鐵築路人】🧱",
-            desc: "<b>安全感滿分，但要記得幫防護工具「線上更新」！</b><br><br>你非常有風險意識，也有儲蓄和保障的底子。不過隨著現代醫療科技快速進展，許多自費額動輒數十萬起跳，過去規劃的防禦工具可能會不夠用。建議讓芝心幫你進行保障定期微調，補上看不見的隱形缺口，你的財務健康雙地基就會非常完美！",
+            desc: "<b>安全感滿分，但要記得幫防護工具「線上更新」！</b><br><br>你非常有風險意識，也有儲蓄 and 保障的底子。不過隨著現代醫療科技快速進展，許多自費額動輒數十萬起跳，過去規劃的防禦工具可能會不夠用。建議讓芝心幫你進行保障定期微調，補上看不見的隱形缺口，你的財務健康雙地基就會非常完美！",
             avatar: "🛠️👷‍♂️",
-            bgColor: "#FFE0B2",
-            lineMsg: "嗨！芝心～我測出來是【鋼鐵築路人】🧱 想請妳幫我做個財務地基健康檢查，微調我的保障跟退休被動收入！"
+            bgColor: "#FFE0B2"
         },
         C: {
             title: "【城堡領主】🏰",
             desc: "<b>城堡護城河很深，定期微調升級就能無懈可擊！</b><br><br>太優秀了！你的風險防護與財務觀念都超級棒。身為城堡領主，你的防禦力基本上已經在黃金軌道上。芝心建議你只需要針對最新醫療科技（例如癌症最新精密療法）進行定期小幅微調升級，就能確保你的城堡一輩子穩若泰山！",
             avatar: "🏰👑",
-            bgColor: "#D1C4E9",
-            lineMsg: "嗨！芝心～我測出來是【城堡領主】🏰 我的保障好像蠻完整的，想找妳幫我做個定期檢視，看看有沒有漏掉最新的醫療保障！"
+            bgColor: "#D1C4E9"
         }
     };
 
@@ -429,13 +423,6 @@
         
         document.getElementById('result-bg').style.backgroundColor = res.bgColor;
         document.getElementById('result-avatar').innerText = res.avatar;
-        
-        // 修正：使用 LINE 官方直達「加好友介面」的深度連結 (Deep Link) 搭配自動帶入訊息
-        const lineID = "@221hssks"; 
-        const directLineLink = "https://line.me/R/oaMessage/" + lineID + "/??" + encodeURIComponent(res.lineMsg);
-        
-        const lineBtn = document.getElementById('line-link');
-        lineBtn.href = directLineLink;
     }
 </script>
 
