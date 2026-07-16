@@ -8,12 +8,13 @@
         :root {
             --primary-color: #FF8C00;
             --secondary-color: #FFA500;
-            --bg-color: #FAF6F0; /* 溫柔奶油燕麥色 */
+            --bg-color: #F7F4EF; /* 日系極簡燕麥色 */
             --card-bg: #FFFFFF;
-            --text-color: #5A4B41; /* 手繪風深咖啡色字 */
+            --text-color: #4A3E3D; /* 溫柔的碳灰色 */
+            --accent-color: #E8D3C4;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
@@ -26,106 +27,92 @@
         }
         .card {
             background: var(--card-bg);
-            border-radius: 28px;
-            box-shadow: 0 12px 25px rgba(220, 150, 100, 0.08);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(74, 62, 61, 0.05);
             padding: 25px;
             max-width: 440px;
             width: 100%;
             text-align: center;
-            border: 3px solid #FFD09B; /* 手繪風厚邊框 */
+            border: 1px solid #E8E2D9;
             position: relative;
             box-sizing: border-box;
         }
         .brand-tag {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--primary-color);
             font-weight: bold;
+            letter-spacing: 1.5px;
             margin-bottom: 15px;
             display: inline-block;
-            background-color: #FFF3E0;
-            padding: 5px 14px;
-            border-radius: 20px;
-            border: 2px dashed var(--secondary-color);
+            background-color: #FFF5EB;
+            padding: 4px 14px;
+            border-radius: 12px;
+            border: 1px solid #FFDAB9;
         }
         h1 { 
-            color: var(--primary-color); 
+            color: var(--text-color); 
             font-size: 1.5rem; 
             margin-top: 5px; 
-            margin-bottom: 15px;
-            font-weight: 800;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
         
-        /* CSS Q版手繪插圖卡片（不依賴外部圖片，永不破圖） */
+        /* 溫青日系插畫外框 */
         .illustration-box {
             width: 100%;
-            height: 160px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #FFF8EC, #FFEAD2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            height: 220px;
+            border-radius: 16px;
+            margin-bottom: 22px;
+            overflow: hidden;
+            background-color: #FDFDFD;
+            border: 1px solid #EAE5DD;
             position: relative;
-            border: 2px solid #FFD09B;
-            box-shadow: inset 0 0 15px rgba(255, 140, 0, 0.05);
         }
-        
-        /* Ｑ版巨型動態角色圖示 */
-        .q-character {
-            font-size: 4.8rem;
-            filter: drop-shadow(0 8px 10px rgba(220, 150, 100, 0.15));
-            animation: float 3s ease-in-out infinite;
-            display: inline-block;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(3deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        .illustration-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 確保圖片完美填滿且不變形 */
         }
 
         .btn {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            background: #FF8C00;
             color: white;
             border: none;
             padding: 15px 25px;
-            font-size: 1.05rem;
-            border-radius: 50px;
+            font-size: 1rem;
+            border-radius: 12px;
             cursor: pointer;
             width: 100%;
             margin-top: 15px;
             font-weight: bold;
-            transition: transform 0.2s;
-            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
-            border-bottom: 4px solid #D26900; /* 手繪風立體感 */
+            transition: all 0.2s;
+            letter-spacing: 1px;
         }
         .btn:active { 
             transform: scale(0.98); 
-            border-bottom-width: 1px;
-            margin-top: 18px;
+            background: #E07B00;
         }
         
         .option-btn {
             background: white;
             color: var(--text-color);
-            border: 2px solid #FFE4B5;
+            border: 1.5px solid #E2DCD5;
             padding: 15px;
             margin: 10px 0;
             width: 100%;
-            border-radius: 16px;
+            border-radius: 12px;
             font-size: 0.95rem;
             cursor: pointer;
             text-align: left;
-            transition: all 0.2s;
+            transition: all 0.25s ease;
             line-height: 1.4;
             box-sizing: border-box;
-            box-shadow: 0 4px 0px #FFE4B5;
         }
         .option-btn:hover, .option-btn:active {
-            background-color: #FFFDF0;
+            background-color: #FAF6F0;
             border-color: var(--primary-color);
-            transform: translateY(2px);
-            box-shadow: 0 2px 0px var(--primary-color);
+            color: var(--primary-color);
         }
         .hidden { display: none; }
         
@@ -136,9 +123,9 @@
             margin-bottom: 20px;
         }
         .progress-bar-bg {
-            height: 8px;
-            background-color: #FFE4B5;
-            border-radius: 4px;
+            height: 6px;
+            background-color: #EAE5DD;
+            border-radius: 3px;
             width: 80%;
             overflow: hidden;
         }
@@ -150,15 +137,15 @@
         }
         .progress-text {
             font-size: 0.85rem;
-            color: var(--primary-color);
+            color: #8C7E72;
             font-weight: bold;
         }
         
         .footer-text {
             font-size: 0.75rem;
-            color: #A08A75;
+            color: #9C8E82;
             margin-top: 25px;
-            border-top: 1px dashed #FFE4B5;
+            border-top: 1px solid #EAE5DD;
             padding-top: 15px;
             line-height: 1.4;
         }
@@ -167,113 +154,106 @@
 <body>
 
 <div class="card">
-    <!-- 開始畫面 -->
     <div id="start-screen">
-        <span class="brand-tag">🧡 芝心人生夥伴 溫馨策劃</span>
+        <span class="brand-tag">🍊 芝心人生夥伴 溫暖企劃</span>
         <h1>安全感防禦人格檢測</h1>
         
         <div class="illustration-box">
-            <!-- 守護小木屋 Q版 Emoji 手繪卡片 -->
-            <div class="q-character">🏡✨</div>
+            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=600" alt="防禦檢測首頁">
         </div>
 
-        <p style="line-height: 1.6; color: #6B5B52; font-size: 0.92rem; margin-top: 5px;">
-            你對未來的防禦力，到底是銅牆鐵壁還是蕾絲防護網？<br>
-            <b>芝心</b> 精心設計了 6 個生活共鳴情境，<br>一分鐘直覺測出你是哪一種「安全感人格」！
+        <p style="line-height: 1.6; color: #6E6259; font-size: 0.92rem; margin-top: 5px; text-align: left; padding: 0 10px;">
+            生活總有些意外，有些人的防禦力是厚實城堡，有些人則是優雅的蕾絲防護網。<br><br>
+            <b>芝心</b> 準備了 6 個最真實、最有共鳴的生活選擇。讓我們花一分鐘，看看你的保障「安全感」到底及不及格？
         </p>
-        <button class="btn" onclick="startQuiz()">出發檢測！</button>
+        <button class="btn" onclick="startQuiz()">開始檢測</button>
         <div class="footer-text">© 芝心人生夥伴 | 陪你築起最穩固的財務地基</div>
     </div>
 
-    <!-- 測驗畫面 -->
     <div id="quiz-screen" class="hidden">
         <div class="progress-container">
             <div class="progress-bar-bg"><div id="progress" class="progress-fill"></div></div>
             <span id="progress-number" class="progress-text">1/6</span>
         </div>
         
-        <!-- 動態Q版手繪卡片 -->
         <div class="illustration-box">
-            <div id="question-char" class="q-character">❓</div>
+            <img id="question-img" src="" alt="情境圖">
         </div>
 
-        <h3 id="question-text" style="margin-bottom: 15px; line-height: 1.5; font-size: 1.05rem; text-align: left; color: #4A3C31;">載入中...</h3>
+        <h3 id="question-text" style="margin-bottom: 15px; line-height: 1.5; font-size: 1.05rem; text-align: left; color: #3A2E2B;">載入中...</h3>
         <div id="options-container"></div>
         <div class="footer-text">芝心人生夥伴 溫馨陪伴中...</div>
     </div>
 
-    <!-- 結果畫面 -->
     <div id="result-screen" class="hidden">
-        <span class="brand-tag">🧡 芝心人生夥伴 專業分析</span>
-        <h2 style="color: var(--primary-color); margin-bottom: 5px; font-size: 1.1rem;">你的檢測結果</h2>
-        <h1 id="result-title" style="font-size: 1.8rem; margin-top: 5px; margin-bottom: 15px;">計算中...</h1>
+        <span class="brand-tag">🍊 芝心人生夥伴 專業分析</span>
+        <h2 style="color: #8C7E72; margin-bottom: 5px; font-size: 1.1rem; letter-spacing: 1px;">你的檢測結果</h2>
+        <h1 id="result-title" style="font-size: 1.8rem; margin-top: 5px; margin-bottom: 15px; color: var(--primary-color);">計算中...</h1>
         
-        <!-- 結果Q版插圖卡片 -->
         <div class="illustration-box">
-            <div id="result-char" class="q-character">✨</div>
+            <img id="result-img" src="" alt="結果圖">
         </div>
 
-        <p id="result-desc" style="line-height: 1.6; text-align: left; background: #FFFDF9; padding: 15px; border-radius: 12px; border-left: 5px solid var(--primary-color); font-size: 0.92rem; margin-bottom: 20px;"></p>
+        <p id="result-desc" style="line-height: 1.6; text-align: left; background: #FAF8F5; padding: 18px; border-radius: 12px; border-left: 5px solid var(--primary-color); font-size: 0.92rem; margin-bottom: 20px; color: #5E5048;"></p>
         
-        <!-- LINE 導流按鈕 -->
         <a id="line-link" href="#" target="_blank" style="text-decoration: none;">
-            <button class="btn" style="background: linear-gradient(135deg, #02b348, #06C755); border-bottom: 4px solid #009933; box-shadow: 0 5px 15px rgba(6, 199, 85, 0.3);">
+            <button class="btn" style="background: #06C755; border: none; box-shadow: 0 4px 12px rgba(6, 199, 85, 0.2);">
                 💬 敲「芝心」聊聊我的人格秘密
             </button>
         </a>
-        <div class="footer-text">想微調生活保障或聊聊退休現金流？讓芝心當你最可靠的夥伴</div>
+        <div class="footer-text">想微調生活保障或聊聊被動收入？讓芝心當你最可靠的夥伴</div>
     </div>
 </div>
 
 <script>
-    // 使用純 Emoji + 動態 CSS 卡片，完美相容所有手機與電腦
+    // 嚴選「100%可外連、不破圖」且畫風極具文青共鳴感的日系/極簡風格影像
     const questions = [
         { 
-            q: "Q1. 走在路上不幸踢到鐵板骨折，躺在醫院病床上時，你的大腦第一時間在想...", 
-            char: "🤕🩹", // 骨折繃帶Q版
+            q: "Q1. 假如不小心骨折躺在醫院，看著雙人房旁邊傳來的打呼聲，你的內心戲是...", 
+            imgUrl: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=600", // 乾淨簡約的醫療諮詢/舒緩視覺
             options: [
-                { text: "😢 完了，聽說單人房一天要貼好幾千，我還是去睡健保房或走廊好了...", score: 1 }, 
-                { text: "😎 沒差，我有保險神隊友！給我來一間陽光灑落的單人房！", score: 0 }
+                { text: "😢 雖然很吵，但自費單人房一天要多貼好幾千，我還是默默戴上耳塞吧...", score: 1 }, 
+                { text: "😎 幸好有規劃醫療險！沒在跟它客氣，立刻申請入住陽光灑落的單人房！", score: 0 }
             ] 
         },
         { 
-            q: "Q2. 醫生遞過來一張同意書，建議你自費 20 萬做最新型微創手術，你第一眼盯著看的是...", 
-            char: "👨‍⚕️🩺", // Q版醫生
+            q: "Q2. 當醫生建議自費 20 萬採用傷口小、恢復快的微創手術時，你的第一直覺是...", 
+            imgUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600", // 質感鋼筆與文件（代表合約與同意書）
             options: [
-                { text: "😨 那排晃眼的『金額欄』...想問醫生有沒有健保全額給付的傳統手術？", score: 1 }, 
-                { text: "💳 當然是『傷口小、恢復快』的說明！反正有實支實付，健康第一！", score: 0 }
+                { text: "😰 20 萬...？請問醫生有沒有那種『傷口比較大，但健保全給付』的復古手術？", score: 1 }, 
+                { text: "💳 保命要緊！既然有規劃實支實付，當然選對身體最好的科技新技術！", score: 0 }
             ] 
         },
         { 
-            q: "Q3. 剛領完薪水，看著自己戶頭裡那筆「未來教育/買房基金」，你會如何管理它？", 
-            char: "🐷🪙", // Q版儲蓄豬豬
+            q: "Q3. 剛領完薪水，看著自己辛苦存下的一筆「買房/教育預備金」，你會怎麼打理它？", 
+            imgUrl: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&q=80&w=600", // 溫柔簡約的手帳與記事本
             options: [
-                { text: "🏦 放在一般帳戶隨時會被我不小心刷掉，甚至被通膨默默吃掉...", score: 1 }, 
-                { text: "🔒 鎖在有穩定增值、強迫儲蓄的年金險或專屬帳戶，誰都別想動它！", score: 0 }
+                { text: "🏦 放在一般活存，但老實說，常常不小心手滑就被自己轉出去花掉了...", score: 1 }, 
+                { text: "🔒 放在會安全增值且不能亂動的專屬帳戶，強迫自己把地基蓋得穩穩的！", score: 0 }
             ] 
         },
         { 
-            q: "Q4. 提到「為自己規劃被動收入/退休生活」這件事，你最真實的現狀是...", 
-            char: "🌴🍹", // Q版度假放鬆
+            q: "Q4. 靜下來思考「退休生活」或「未來每個月的被動收入」時，你目前的進度是...", 
+            imgUrl: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=600", // 日系慵懶午後咖啡
             options: [
-                { text: "💭 有打算啦...但每個月卡費和生活開銷扣完，就打算下個月再說了。", score: 1 }, 
-                { text: "📈 有在實施中！無論是定期定額還是儲蓄型年金，默默在蓋財務地基！", score: 0 }
+                { text: "💭 有想過，但每個月生活開銷扣完就沒了，總覺得那是『以後的事』。", score: 1 }, 
+                { text: "📈 已經在執行了！定期定額或利用年金險，默默在為未來的自己準備零花錢！", score: 0 }
             ] 
         },
         { 
-            q: "Q5. 突然驚覺身邊好幾個朋友都開始做健康檢查、甚至有人生病，你的反應是...", 
-            char: "🔍📝", // Q版檢查清單
+            q: "Q5. 看到身邊同齡朋友健檢紅字、甚至突然生病，你對自己的生活防護網是...", 
+            imgUrl: "https://images.unsplash.com/photo-1484480974693-2ca0a72af3a8?auto=format&fit=crop&q=80&w=600", // 文青風手繪 Check list
             options: [
-                { text: "🫣 鴕鳥心態，不敢看自己的健康和保障，深怕看到赤裸裸的缺口。", score: 1 }, 
-                { text: "🛡️ 預防勝於治療，定期把現有保障拉出來健檢，跟上最新醫療水準！", score: 0 }
+                { text: "🫣 有點鴕鳥心態，不敢看健檢結果，也從來沒仔細算過自己到底保了什麼。", score: 1 }, 
+                { text: "🛡️ 預防勝於治療！定期找專業夥伴檢視缺口，確保自己的保障跟得上醫療進步！", score: 0 }
             ] 
         },
         { 
-            q: "Q6. 對於「財務自由」這四個字，你腦海中浮現的終極浪漫畫面是...", 
-            char: "☀️🌻", // Q版陽光向日葵（呼應你最愛的陽光感！）
+            q: "Q6. 當談到「財務自由」，哪一個才是最讓你感到安心的畫面？", 
+            imgUrl: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=600", // 溫暖自然陽光灑落的樹林（呼應溫暖 bright 的氛圍）
             options: [
-                { text: "🍟 點麥當勞直接升級大薯，不用看價錢就覺得很爽了！", score: 1 }, 
-                { text: "🏡 退休後每個月有一筆「穩定的現金流」自動入帳，天天自然醒！", score: 2 }
+                { text: "🍟 買東西、點餐可以不用看價格，直接升級套餐，這樣就覺得很治癒了！", score: 1 }, 
+                { text: "🏡 退休後每個月都有一筆「穩定的現金流」自動入帳，不用為生活妥協！", score: 2 }
             ] 
         }
     ];
@@ -300,8 +280,8 @@
         const q = questions[currentQuestion];
         document.getElementById('question-text').innerText = q.q;
         
-        // 更新可愛動態Q版圖示
-        document.getElementById('question-char').innerText = q.char;
+        const imgEl = document.getElementById('question-img');
+        imgEl.src = q.imgUrl;
         
         const container = document.getElementById('options-container');
         container.innerHTML = '';
@@ -326,30 +306,32 @@
         let title = "";
         let desc = "";
         let lineMsg = "";
-        let resultChar = "";
+        let resultImg = "";
 
         if (score >= 5) {
             title = "【極光探險家】";
-            desc = "你對生活充滿夢想，熱愛當下，但目前的財務與保障防禦地基就像蕾絲一樣單薄！一旦生活中遇到突發的醫療開支或需要自費時，很容易影響你追求自由的腳步。別擔心！芝心建議你及早健檢「實支實付醫療缺口」，並透過穩定工具打造未來的被動現金流。跟芝心一起動手，把你的蕾絲網升級成超強安全防護網吧！";
+            desc = "你對生活充滿夢想與活力，熱愛當下，但不得不說，你目前的「財務防禦地基」就像精緻的蕾絲一樣單薄！一旦生活中遇到突發的自費醫療開支，或是工作收入不小心按下了暫停鍵，很容易就會動搖到你原本追求的自由與生活品質。別擔心！芝心建議你及早檢核自己的「實支實付醫療缺口」，並開始規劃穩健的退休被動現金流。跟芝心一起動手，把蕾絲升級成最安心的防護網吧！";
             lineMsg = "嗨！芝心～我測出來是【極光探險家】✨ 想跟妳聊聊怎麼檢視我的醫療保障，還有幫自己存出一筆穩定的退休現金流！";
-            resultChar = "🚀🌌"; // 太空探險Q版
+            resultImg = "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=600"; // 浩瀚星空（極光與夢想意象）
         } else if (score >= 2) {
             title = "【鋼鐵築路人】";
-            desc = "你非常有安全意識，也有一定的保障底子，懂得為下雨天做準備。不過，現在最新的醫療科技日新月異（很多新型手術和藥物自費額高得嚇人），你手上的防禦工具可能有點「跟不上時代」了。面對高額自費以及未來退休的源源不絕現金流，可能還有一些肉眼看不見的小缺口。讓芝心幫你稍微做個檢診微調，你的財務與保障地基就會非常完美！";
+            desc = "你非常有安全意識，也有一定的防禦底子，懂得「未雨綢繆」的道理。不過，現在的醫療科技和新型手術發展得太快，很多新藥物、微創手術自費動輒數十萬起跳，你手上的保障可能有點「跟不上時代」了。在面對高額自費以及退休後的現金流需求時，你的防禦牆可能還有一些肉眼看不見的小缺口。讓芝心幫你稍微做個地基健診與微調，保障就會非常完美！";
             lineMsg = "嗨！芝心～我測出來是【鋼鐵築路人】🧱 想請妳幫我做個財務地基健康檢查，微調我的保障跟退休被動收入！";
-            resultChar = "🧱👷‍♂️"; // 築路/工程Q版
+            resultImg = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600"; // 手作質感、構建地基意象
         } else {
             title = "【城堡領主】";
-            desc = "太優秀了！你的風險防護與財務觀念都超級好，基本上已經穩穩走在安心退休與充分保障的黃金軌道上。身為城堡領主，你的護城河已經相當深厚，芝心建議你可以定期做個合約與保障檢視，看看有沒有需要針對最新的醫療科技（例如癌症最新精密療法）進行微幅升級，確保你的城堡防禦力永遠保持在滿格狀態！";
+            desc = "太優秀了！你的風險防禦觀念和財務觀點堪稱模範，基本上已經穩穩地走在安心生活與充分保障的黃金軌道上。身為城堡領主，你的護城河已經相當深厚。芝心建議你，接下來可以定期做合約檢視，看看是否需要針對最新型的醫療科技（例如高昂精準醫療、防癌新科技）進行微幅補強，確保這座財富城堡永遠無懈可擊！";
             lineMsg = "嗨！芝心～我測出來是【城堡領主】🏰 我的保障好像蠻完整的，想找妳幫我做個定期檢視，看看有沒有漏掉最新的醫療保障！";
-            resultChar = "🏰👑"; // 城堡領主Q版
+            resultImg = "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=600"; // 高級精緻的城堡線條建築
         }
 
         document.getElementById('result-title').innerText = title;
         document.getElementById('result-desc').innerText = desc;
-        document.getElementById('result-char').innerText = resultChar;
         
-        // 你的 Line ID ＠221hssks
+        const resImgEl = document.getElementById('result-img');
+        resImgEl.src = resultImg;
+        
+        // 你的 Line ID：@221hssks
         const lineID = "@221hssks"; 
         const myLineLink = "https://line.me/R/ti/p/" + lineID + "?text=" + encodeURIComponent(lineMsg);
         
