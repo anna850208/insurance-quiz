@@ -29,7 +29,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
         }
 
         .container {
@@ -38,7 +38,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             width: 100%;
             max-width: 500px;
-            padding: 30px;
+            padding: 24px;
             text-align: center;
             overflow: hidden;
             position: relative;
@@ -53,25 +53,29 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* 放大圖片顯示區域 */
         img.stage-img {
             width: 100%;
-            max-height: 280px;
+            height: auto;
+            max-height: 400px; /* 從 280px 調大到 400px */
             object-fit: contain;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             border-radius: 16px;
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 22px;
             margin-bottom: 12px;
             color: #333;
+            line-height: 1.4;
         }
 
         p.desc {
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.6;
             color: #666;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+            padding: 0 10px;
         }
 
         /* 答案選項按鈕 */
@@ -79,7 +83,7 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .btn {
@@ -109,6 +113,7 @@
             color: #E64A19;
             border: 2px solid #FFCCBC;
             box-shadow: none;
+            line-height: 1.4;
         }
 
         .btn-option:hover {
@@ -191,7 +196,7 @@
 </div>
 
 <script>
-    // 測驗題目資料庫（使用本機檔案相對路徑）
+    // 測驗題目資料庫（使用本機相對路徑）
     const questions = [
         {
             id: 1,
@@ -225,7 +230,7 @@
         },
         {
             id: 4,
-            image: "5.jpg", // ⚠️ 注意這張圖片副檔名是 .jpg 喔！
+            image: "5.jpg", // 注意這張為 JPG
             title: "Q4：妳夢想中的生活藍圖裡，不可或缺的是？",
             options: [
                 { text: "有源源不絕的被動收入，無後顧之憂地到處出國旅行", score: { A: 3, B: 2, C: 1 } },
@@ -255,7 +260,7 @@
         }
     ];
 
-    // 測驗結果資料庫（使用本機檔案相對路徑）
+    // 測驗結果資料庫（使用本機相對路徑）
     const results = {
         A: {
             title: "開拓冒險家 🔭",
