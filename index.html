@@ -1,393 +1,302 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>芝心人生夥伴｜一分鐘財務與保障安全感觀測站</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <title>財務地基大檢測</title>
     <style>
         :root {
-            --primary-color: #FF8C00;
-            --secondary-color: #FFA500;
-            --bg-color: #FAF6F0; /* 溫馨燕麥奶色 */
+            --primary-color: #FF8A80;
+            --primary-hover: #FF5252;
+            --bg-color: #FFF9F6;
             --card-bg: #FFFFFF;
-            --text-main: #5C4B40; /* 溫暖可可深咖 */
-            --text-sub: #A38F80;
-            --pastel-orange: #FFEAD8;
+            --text-color: #4A4A4A;
         }
-        
+
         * {
             box-sizing: border-box;
-            font-family: 'Noto Sans TC', sans-serif;
-            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 16px;
+            color: var(--text-color);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
-        .card {
+        .container {
             background: var(--card-bg);
-            border-radius: 30px;
-            box-shadow: 0 16px 35px rgba(140, 126, 114, 0.08);
-            padding: 25px 20px;
-            max-width: 450px; 
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             width: 100%;
+            max-width: 500px;
+            padding: 30px;
             text-align: center;
-            border: 2px solid #EFEAE2;
-            position: relative;
-        }
-
-        .brand-tag {
-            font-size: 0.8rem;
-            color: #D47A3B;
-            font-weight: 700;
-            margin-bottom: 18px;
-            display: inline-block;
-            background: linear-gradient(135deg, #FFF5EB, #FFE4D6);
-            padding: 5px 16px;
-            border-radius: 50px;
-            border: 1px solid #FCD4BD;
-        }
-
-        h1 { 
-            color: var(--text-main); 
-            font-size: 1.45rem; 
-            margin-top: 5px; 
-            margin-bottom: 20px;
-            font-weight: 900;
-            line-height: 1.4;
-        }
-
-        .illustration-stage {
-            width: 100%;
-            height: 300px; 
-            border-radius: 20px;
-            margin-bottom: 22px;
-            background: #FFFDFC;
-            border: 2px dashed #FFD09B;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
             overflow: hidden;
+            position: relative;
         }
 
-        .custom-img {
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10s); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        img.stage-img {
             width: 100%;
-            height: 100%;
-            object-fit: contain; 
-            padding: 5px; 
-            border-radius: 18px;
-            transition: all 0.3s ease;
+            max-height: 280px;
+            object-fit: contain;
+            margin-bottom: 24px;
+            border-radius: 16px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        p.desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        /* 答案選項按鈕 */
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
         }
 
         .btn {
-            background: linear-gradient(135deg, #FFB03A, #FF8C00);
+            background-color: var(--primary-color);
             color: white;
             border: none;
-            padding: 15px 25px;
-            font-size: 1.05rem;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
-            width: 100%;
-            margin-top: 15px;
-            font-weight: 700;
             transition: all 0.2s ease;
-            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.2);
-            border-bottom: 4px solid #E06C00;
-        }
-        
-        .btn:active { 
-            transform: translateY(3px);
-            border-bottom-width: 1px;
-            box-shadow: 0 2px 5px rgba(255, 140, 0, 0.1);
-        }
-
-        .option-btn {
-            background: #FFFFFF;
-            color: var(--text-main);
-            border: 1.5px solid #EFEAE2;
-            padding: 16px 18px;
-            margin: 10px 0;
             width: 100%;
-            border-radius: 18px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            cursor: pointer;
-            text-align: left;
-            transition: all 0.15s ease;
-            line-height: 1.4;
-            box-shadow: 0 4px 0px #F5EFE6;
+            box-shadow: 0 4px 10px rgba(255, 138, 128, 0.3);
         }
 
-        .option-btn:active, .option-btn:hover {
-            background-color: #FFFDF9;
-            border-color: #FF8C00;
-            color: #FF8C00;
-            transform: translateY(2px);
-            box-shadow: 0 2px 0px #FF8C00;
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 82, 82, 0.4);
         }
 
-        .hidden { display: none; }
-
-        .progress-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding: 0 5px;
+        .btn-option {
+            background-color: #FFF0EB;
+            color: #E64A19;
+            border: 2px solid #FFCCBC;
+            box-shadow: none;
         }
-        
-        .progress-bar-bg {
+
+        .btn-option:hover {
+            background-color: #FFCCBC;
+            color: #D84315;
+            border-color: #FF8A80;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255, 138, 128, 0.15);
+        }
+
+        /* 進度條 */
+        .progress-bar {
+            width: 100%;
             height: 8px;
-            background-color: #F5EFE6;
-            border-radius: 10px;
-            width: 80%;
+            background-color: #F0F0F0;
+            border-radius: 4px;
+            margin-bottom: 20px;
             overflow: hidden;
         }
-        
+
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #FFB870, #FF8C00);
+            background-color: var(--primary-color);
             width: 0%;
-            border-radius: 10px;
             transition: width 0.3s ease;
         }
-        
-        .progress-text {
-            font-size: 0.85rem;
-            color: #FF8C00;
-            font-weight: 700;
-        }
 
-        .intro-text {
-            line-height: 1.6;
-            color: var(--text-main);
-            font-size: 0.95rem;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            text-align: left;
-            background: #FFFDF9;
-            padding: 16px;
-            border-radius: 18px;
-            border: 1px dashed #FFD09B;
-        }
-
-        .result-box {
-            text-align: left;
-            background: #FFFDFB;
-            padding: 18px;
-            border-radius: 18px;
-            border: 2px dashed #FFD2A6;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .footer-text {
-            font-size: 0.72rem;
-            color: var(--text-sub);
-            margin-top: 25px;
-            border-top: 1px dashed #EFEAE2;
-            padding-top: 15px;
-            letter-spacing: 0.5px;
+        .hide {
+            display: none !important;
         }
     </style>
 </head>
 <body>
 
-<div class="card">
+<div class="container" id="game-container">
     <!-- 開始畫面 -->
-    <div id="start-screen">
-        <span class="brand-tag">🍊 芝心人生夥伴 療癒企劃</span>
-        <h1>安全感防禦人格檢測</h1>
-        
-        <div class="illustration-stage">
-            <!-- 這裡會自動讀取下面設定的開始圖片網址 -->
-            <img id="start-img" class="custom-img" src="" alt="開始插圖">
-        </div>
-
-        <div class="intro-text">
-            嗨！我是你的財務地基診斷師<b>芝心</b> 🍊<br><br>
-            你對未來的安全防禦，到底是像銅牆鐵壁一樣讓人安心，還是像精緻的蕾絲一樣一碰就透？<br><br>
-            花一分鐘，跟著超療癒的 Q 版插畫卡，測出你專屬的「防禦人格」吧！
-        </div>
-        <button class="btn" onclick="startQuiz()">出發測驗 🚀</button>
-        <div class="footer-text">© 芝心人生夥伴 | 陪你築起最穩固的財務地基</div>
+    <div id="start-screen" class="fade-in">
+        <img src="1.png" alt="開始畫面" class="stage-img">
+        <h1>築夢未來：妳的專屬財務診斷</h1>
+        <p class="desc">歡迎來到財務地基檢測！只需花 2 分鐘回答 6 個生活場景問題，就能幫妳健檢財務體質，找出最適合妳的資產配置方向。</p>
+        <button class="btn" onclick="startGame()">立即開始測驗</button>
     </div>
 
-    <!-- 測驗畫面 -->
-    <div id="quiz-screen" class="hidden">
-        <div class="progress-container">
-            <div class="progress-bar-bg"><div id="progress" class="progress-fill"></div></div>
-            <span id="progress-number" class="progress-text">1/6</span>
+    <!-- 測驗題目畫面 -->
+    <div id="quiz-screen" class="hide fade-in">
+        <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
         </div>
-        
-        <div class="illustration-stage">
-            <img id="quiz-img" class="custom-img" src="" alt="題目插圖">
+        <img id="question-img" src="" alt="題目圖片" class="stage-img">
+        <h1 id="question-title">題目載入中...</h1>
+        <div class="options-container" id="options-container">
+            <!-- 動態生成選項 -->
         </div>
-
-        <h3 id="question-text" style="margin-bottom: 15px; line-height: 1.5; font-size: 1.05rem; text-align: left; padding: 0 5px;">載入中...</h3>
-        <div id="options-container"></div>
-        <div class="footer-text">芝心陪著你，別緊張唷 🍊</div>
     </div>
 
-    <!-- 結果畫面 -->
-    <div id="result-screen" class="hidden">
-        <span class="brand-tag">🍊 芝心人生夥伴 診斷報告</span>
-        <h2 style="color: var(--text-sub); margin-bottom: 5px; font-size: 0.9rem; font-weight: 500;">你專屬的防禦人格是</h2>
-        <h1 id="result-title" style="font-size: 1.8rem; margin-top: 5px; margin-bottom: 15px; color: #FF8C00;">計算中...</h1>
-        
-        <div class="illustration-stage">
-            <img id="result-img" class="custom-img" src="" alt="結果插圖">
-        </div>
-
-        <div id="result-desc" class="result-box"></div>
-        
-        <button class="btn" onclick="redirectToLine()" style="background: linear-gradient(135deg, #02b348, #06C755); border-bottom: 4px solid #009933; box-shadow: 0 6px 15px rgba(6, 199, 85, 0.25);">
-            💬 敲「芝心」聊聊我的人格秘密
-        </button>
-        <div class="footer-text">想微調保障或聊聊月月被動收入？找芝心就對啦！</div>
+    <!-- 測驗結果畫面 -->
+    <div id="result-screen" class="hide fade-in">
+        <img id="result-img" src="" alt="結果圖片" class="stage-img">
+        <h1 id="result-title">計算中...</h1>
+        <p class="desc" id="result-desc">檢測分析結果</p>
+        <button class="btn" onclick="restartGame()">重新測驗</button>
     </div>
 </div>
 
 <script>
-    // ==========================================
-    // 🍊 圖片網址替換區
-    // 請把後面的 "你的圖片網址.png" 換成上傳後的真正網址
-    // ==========================================
-    const imageUrls = {
-        start: "你的開始畫面圖片網址.png",
-        q1: "你的題目1圖片網址.png",
-        q2: "你的題目2圖片網址.png",
-        q3: "你的題目3圖片網址.png",
-        q4: "你的題目4圖片網址.png",
-        q5: "你的題目5圖片網址.png",
-        q6: "你的題目6圖片網址.png",
-        r1: "你的結果A圖片網址.png",
-        r2: "你的結果B圖片網址.png",
-        r3: "你的結果C圖片網址.png"
-    };
-
-    // 初始化開始畫面圖片
-    document.getElementById('start-img').src = imageUrls.start;
-
+    // 測驗題目資料庫
     const questions = [
         {
-            question: "1. 當突然收到一筆意料之外的緊急支出帳單（例如修車或醫藥費），你的第一反應是？",
-            imgKey: "q1",
+            id: 1,
+            image: "2.png",
+            title: "Q1：如果突然發生了意外傷害，妳的第一反應是？",
             options: [
-                { text: "完全不擔心，我有準備好絕對充足的緊急預備金。", type: "A" },
-                { text: "雖然有點心痛，但調整一下本月的娛樂開銷還過得去。", type: "B" },
-                { text: "瞬間壓力爆表，可能需要動用到信用卡分期或向人求助。", type: "C" }
+                { text: "幸好我有買意外醫療險，不用擔心醫藥費", score: { A: 3, B: 1, C: 2 } },
+                { text: "慘了，這筆額外的開銷可能會卡死我下半月的預算", score: { A: 1, B: 3, C: 2 } },
+                { text: "只能先刷卡分期頂著，之後再打算", score: { A: 1, B: 2, C: 3 } }
             ]
         },
         {
-            question: "2. 關於自己的醫療與意外保障，你的了解程度是？",
-            imgKey: "q2",
+            id: 2,
+            image: "3.png",
+            title: "Q2：面對大病與醫療開支，妳最在意什麼？",
             options: [
-                { text: "非常清楚！每年固定盤點，連細節理賠額度都倒背如流。", type: "A" },
-                { text: "有買基本險種，大方向知道有保什麼，但細節不太確定。", type: "B" },
-                { text: "不太清楚，當初人情保或家人處理的，很久沒看了。", type: "C" }
+                { text: "病房與治療品質，希望能用最好的自費藥物與耗材", score: { A: 3, B: 2, C: 1 } },
+                { text: "請假期間的薪資中斷，會嚴重影響日常基本生活開銷", score: { A: 2, B: 3, C: 1 } },
+                { text: "希望有一筆立即給付的整筆保險金，讓我自由規劃運用", score: { A: 2, B: 1, C: 3 } }
             ]
         },
         {
-            question: "3. 面對目前的日常開銷與未來的財務規劃，你通常怎麼理財？",
-            imgKey: "q3",
+            id: 3,
+            image: "4.png",
+            title: "Q3：在理財與存錢上，妳習慣把錢放哪裡？",
             options: [
-                { text: "嚴格執行記帳與配置，每月雷打不動先存下固定比例。", type: "A" },
-                { text: "有大致的儲蓄概念，剩下的錢才會拿來自由花費。", type: "B" },
-                { text: "活在當下，賺多少花多少，理財計畫常卡在第一步。", type: "C" }
+                { text: "放定存或活存，雖然利率低但覺得這樣最安心安全", score: { A: 1, B: 3, C: 2 } },
+                { text: "穩健累積！規劃定期定額，讓資產能長期穩健增長", score: { A: 3, B: 1, C: 2 } },
+                { text: "投資股票、加密貨幣，追求更高幅度的資產翻倍", score: { A: 2, B: 1, C: 3 } }
             ]
         },
         {
-            question: "4. 如果聊到「老後退休生活」或「長期被動收入」，你的想法是？",
-            imgKey: "q4",
+            id: 4,
+            image: "5.jpg",
+            title: "Q4：妳夢想中的生活藍圖裡，不可或缺的是？",
             options: [
-                { text: "已經開始透過工具打造月月現金流，防患於未然。", type: "A" },
-                { text: "有想過，但覺得還早，打算過幾年再來認真規劃。", type: "B" },
-                { text: "不敢想像，現在的薪水光應付眼前生活就很吃力了。", type: "C" }
+                { text: "有源源不絕的被動收入，無後顧之憂地到處出國旅行", score: { A: 3, B: 2, C: 1 } },
+                { text: "能給孩子最優質的教育資源、買下溫馨舒適的家", score: { A: 2, B: 3, C: 1 } },
+                { text: "能早早退休，每日隨心所欲地享受悠閒生活與興趣", score: { A: 2, B: 1, C: 3 } }
             ]
         },
         {
-            question: "5. 聽到身邊有朋友突然生大病或發生意外時，你內心第一個念頭通常是？",
-            imgKey: "q5",
+            id: 5,
+            image: "6.png",
+            title: "Q5：妳多久會重新檢視一次自己的保單與財務狀況？",
             options: [
-                { text: "幸好我自己的保障做得很足，不用擔心這種萬一。", type: "A" },
-                { text: "會有點緊張，心想是不是該把自己的保單翻出來檢查一下？", type: "B" },
-                { text: "覺得很遺憾，但默默祈禱自己不會這麼倒楣。", type: "C" }
+                { text: "每年都會主動找專業顧問檢視，確保保障符合現狀", score: { A: 3, B: 1, C: 2 } },
+                { text: "買了就不太管它，只有在生病需要申請理賠時才去找", score: { A: 1, B: 3, C: 2 } },
+                { text: "偶爾會看看，但其實不是很確定目前的保障額度到底夠不夠", score: { A: 2, B: 2, C: 3 } }
             ]
         },
         {
-            question: "6. 你理想中的財務與生活狀態，最接近以下哪一種感覺？",
-            imgKey: "q6",
+            id: 6,
+            image: "7.png",
+            title: "Q6：對於『每個月都有穩定現金流』這件事，妳的看法是？",
             options: [
-                { text: "萬無一失的絕對掌控感，做任何事都有底氣。", type: "A" },
-                { text: "隨遇而安的平衡感，既能享受當下又能兼顧未來。", type: "B" },
-                { text: "自由自在不受約束，船到橋頭自然直。", type: "C" }
+                { text: "極度渴望！這是我建立安全感與實現財務自由的關鍵", score: { A: 3, B: 2, C: 1 } },
+                { text: "還好，目前靠本業薪水就足夠支應，沒特別想過", score: { A: 1, B: 3, C: 2 } },
+                { text: "有在想，但不知道該怎麼利用手邊的資金去打造", score: { A: 2, B: 1, C: 3 } }
             ]
         }
     ];
 
+    // 測驗結果資料庫
     const results = {
         A: {
-            title: "堡壘級｜銅牆鐵壁型",
-            imgKey: "r1",
-            desc: "<b>安全感指數：★★★★★</b><br><br>你就像一座堅固的城堡，防禦力驚人！對於風險與財務，你習慣提前做好萬全準備。不過有時候繃得太緊也容易累，適度放鬆、或透過更聰明的配置打造月月被動收入，能讓你的地基不只穩固，還能長出漂亮的花園唷！"
+            title: "開拓冒險家 🔭",
+            image: "8.png",
+            desc: "妳擁有宏觀的視野，對未來充滿無限想像！就像帶著望遠鏡探索星空的太空人一樣，妳適合專注於資產配置與中長期的財務增值。在穩固醫療地基的前提下，大膽打造妳的被動收入引擎吧！"
         },
         B: {
-            title: "平衡級｜彈性減震型",
-            imgKey: "r2",
-            desc: "<b>安全感指數：★★★☆☆</b><br><br>你擁有很棒的適應力，像氣墊一樣具備基礎的防護與緩衝能力。面對小風小浪可以輕鬆應付，但如果遇到大環境的劇烈波動，目前的防禦可能稍顯吃力。建議跟芝心一起做個微調盤點，把地基打得更深更穩！"
+            title: "營造大師 🧱",
+            image: "9.png",
+            desc: "妳非常務實，深知一磚一瓦都需要打好底盤。就像專業的營造職人，妳看重日常的安全感與基礎醫療保障。現在最適合妳的是透過防癌、意外等防禦型保單，先把财务漏洞補好，再穩穩構築妳的黃金城堡！"
         },
         C: {
-            title: "輕薄級｜精緻蕾絲型",
-            imgKey: "r3",
-            desc: "<b>安全感指數：★☆☆☆☆</b><br><br>你看起來生活得自由精彩，但在財務保障上，目前推測防禦力就像精緻的蕾絲一樣——美麗卻經不起用力一碰。現在的你需要的是從最基礎的防禦開始蓋起。別擔心！找芝心一步步把漏洞補上，你也能擁有滿滿的安心感！"
+            title: "城堡守護者 🏰",
+            image: "10.png",
+            desc: "妳是家人與資產最溫暖的守護天使，就像盤踞在城堡上守護和平的小橘龍。妳對資產的安全度要求極高，重視安穩不變的傳承與累積。適合透過穩定、複利滾存的財務工具，在完全零風險的前提下，呵護妳與家人的美麗家園。"
         }
     };
 
     let currentQuestionIndex = 0;
     let scores = { A: 0, B: 0, C: 0 };
 
-    function startQuiz() {
-        document.getElementById('start-screen').classList.add('hidden');
-        document.getElementById('quiz-screen').classList.remove('hidden');
+    // 開始遊戲
+    function startGame() {
+        document.getElementById("start-screen").classList.add("hide");
+        document.getElementById("quiz-screen").classList.remove("hide");
+        currentQuestionIndex = 0;
+        scores = { A: 0, B: 0, C: 0 };
         showQuestion();
     }
 
+    // 顯示題目
     function showQuestion() {
-        const currentQuestion = questions[currentQuestionIndex];
+        const q = questions[currentQuestionIndex];
         
-        const progressPercent = ((currentQuestionIndex + 1) / questions.length) * 100;
-        document.getElementById('progress').style.width = `${progressPercent}%`;
-        document.getElementById('progress-number').innerText = `${currentQuestionIndex + 1}/${questions.length}`;
+        // 更新進度條
+        const progressPercent = ((currentQuestionIndex) / questions.length) * 100;
+        document.getElementById("progress-fill").style.width = `${progressPercent}%`;
+
+        // 填入題目內容
+        document.getElementById("question-img").src = q.image;
+        document.getElementById("question-title").innerText = q.title;
+
+        // 生成選項按鈕
+        const optionsContainer = document.getElementById("options-container");
+        optionsContainer.innerHTML = "";
         
-        document.getElementById('question-text').innerText = currentQuestion.question;
-        document.getElementById('quiz-img').src = imageUrls[currentQuestion.imgKey];
-        
-        const optionsContainer = document.getElementById('options-container');
-        optionsContainer.innerHTML = '';
-        
-        currentQuestion.options.forEach(option => {
-            const button = document.createElement('button');
-            button.className = 'option-btn';
-            button.innerText = option.text;
-            button.onclick = () => selectOption(option.type);
-            optionsContainer.appendChild(button);
+        q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.className = "btn btn-option";
+            btn.innerText = opt.text;
+            btn.onclick = () => selectOption(opt.score);
+            optionsContainer.appendChild(btn);
         });
     }
 
-    function selectOption(type) {
-        scores[type]++;
+    // 選擇答案
+    function selectOption(score) {
+        // 累加分數
+        for (let key in score) {
+            scores[key] += score[key];
+        }
+
         currentQuestionIndex++;
         
         if (currentQuestionIndex < questions.length) {
@@ -397,28 +306,36 @@
         }
     }
 
+    // 結算並顯示結果
     function showResult() {
-        document.getElementById('quiz-screen').classList.add('hidden');
-        document.getElementById('result-screen').classList.remove('hidden');
-        
-        let highestType = 'B';
-        let maxScore = -1;
-        for (const type in scores) {
-            if (scores[type] > maxScore) {
-                maxScore = scores[type];
-                highestType = type;
-            }
+        document.getElementById("quiz-screen").classList.add("hide");
+        document.getElementById("result-screen").classList.remove("hide");
+
+        // 找出最高分的類別
+        let highestCategory = "A";
+        let maxScore = scores.A;
+        if (scores.B > maxScore) {
+            highestCategory = "B";
+            maxScore = scores.B;
         }
-        
-        const result = results[highestType];
-        document.getElementById('result-title').innerText = result.title;
-        document.getElementById('result-img').src = imageUrls[result.imgKey];
-        document.getElementById('result-desc').innerHTML = result.desc;
+        if (scores.C > maxScore) {
+            highestCategory = "C";
+        }
+
+        const result = results[highestCategory];
+
+        // 渲染結果頁面
+        document.getElementById("result-img").src = result.image;
+        document.getElementById("result-title").innerText = `妳的財務人格：${result.title}`;
+        document.getElementById("result-desc").innerText = result.desc;
     }
 
-    function redirectToLine() {
-        window.location.href = "https://line.me/R/ti/p/@221hssks";
+    // 重新測驗
+    function restartGame() {
+        document.getElementById("result-screen").classList.add("hide");
+        document.getElementById("start-screen").classList.remove("hide");
     }
 </script>
+
 </body>
 </html>
