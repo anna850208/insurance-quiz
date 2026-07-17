@@ -211,7 +211,8 @@
         <h1>安全感防禦人格檢測</h1>
         
         <div class="illustration-stage">
-            <img id="start-img" class="custom-img" src="start.png" alt="開始插圖">
+            <!-- 這裡會自動讀取下面設定的開始圖片網址 -->
+            <img id="start-img" class="custom-img" src="" alt="開始插圖">
         </div>
 
         <div class="intro-text">
@@ -259,10 +260,30 @@
 </div>
 
 <script>
+    // ==========================================
+    // 🍊 圖片網址替換區
+    // 請把後面的 "你的圖片網址.png" 換成上傳後的真正網址
+    // ==========================================
+    const imageUrls = {
+        start: "你的開始畫面圖片網址.png",
+        q1: "你的題目1圖片網址.png",
+        q2: "你的題目2圖片網址.png",
+        q3: "你的題目3圖片網址.png",
+        q4: "你的題目4圖片網址.png",
+        q5: "你的題目5圖片網址.png",
+        q6: "你的題目6圖片網址.png",
+        r1: "你的結果A圖片網址.png",
+        r2: "你的結果B圖片網址.png",
+        r3: "你的結果C圖片網址.png"
+    };
+
+    // 初始化開始畫面圖片
+    document.getElementById('start-img').src = imageUrls.start;
+
     const questions = [
         {
             question: "1. 當突然收到一筆意料之外的緊急支出帳單（例如修車或醫藥費），你的第一反應是？",
-            img: "q1.png",
+            imgKey: "q1",
             options: [
                 { text: "完全不擔心，我有準備好絕對充足的緊急預備金。", type: "A" },
                 { text: "雖然有點心痛，但調整一下本月的娛樂開銷還過得去。", type: "B" },
@@ -271,7 +292,7 @@
         },
         {
             question: "2. 關於自己的醫療與意外保障，你的了解程度是？",
-            img: "q2.png",
+            imgKey: "q2",
             options: [
                 { text: "非常清楚！每年固定盤點，連細節理賠額度都倒背如流。", type: "A" },
                 { text: "有買基本險種，大方向知道有保什麼，但細節不太確定。", type: "B" },
@@ -280,7 +301,7 @@
         },
         {
             question: "3. 面對目前的日常開銷與未來的財務規劃，你通常怎麼理財？",
-            img: "q3.png",
+            imgKey: "q3",
             options: [
                 { text: "嚴格執行記帳與配置，每月雷打不動先存下固定比例。", type: "A" },
                 { text: "有大致的儲蓄概念，剩下的錢才會拿來自由花費。", type: "B" },
@@ -289,7 +310,7 @@
         },
         {
             question: "4. 如果聊到「老後退休生活」或「長期被動收入」，你的想法是？",
-            img: "q4.png",
+            imgKey: "q4",
             options: [
                 { text: "已經開始透過工具打造月月現金流，防患於未然。", type: "A" },
                 { text: "有想過，但覺得還早，打算過幾年再來認真規劃。", type: "B" },
@@ -298,7 +319,7 @@
         },
         {
             question: "5. 聽到身邊有朋友突然生大病或發生意外時，你內心第一個念頭通常是？",
-            img: "q5.png",
+            imgKey: "q5",
             options: [
                 { text: "幸好我自己的保障做得很足，不用擔心這種萬一。", type: "A" },
                 { text: "會有點緊張，心想是不是該把自己的保單翻出來檢查一下？", type: "B" },
@@ -307,7 +328,7 @@
         },
         {
             question: "6. 你理想中的財務與生活狀態，最接近以下哪一種感覺？",
-            img: "q6.png",
+            imgKey: "q6",
             options: [
                 { text: "萬無一失的絕對掌控感，做任何事都有底氣。", type: "A" },
                 { text: "隨遇而安的平衡感，既能享受當下又能兼顧未來。", type: "B" },
@@ -319,17 +340,17 @@
     const results = {
         A: {
             title: "堡壘級｜銅牆鐵壁型",
-            img: "r1.png",
+            imgKey: "r1",
             desc: "<b>安全感指數：★★★★★</b><br><br>你就像一座堅固的城堡，防禦力驚人！對於風險與財務，你習慣提前做好萬全準備。不過有時候繃得太緊也容易累，適度放鬆、或透過更聰明的配置打造月月被動收入，能讓你的地基不只穩固，還能長出漂亮的花園唷！"
         },
         B: {
             title: "平衡級｜彈性減震型",
-            img: "r2.png",
+            imgKey: "r2",
             desc: "<b>安全感指數：★★★☆☆</b><br><br>你擁有很棒的適應力，像氣墊一樣具備基礎的防護與緩衝能力。面對小風小浪可以輕鬆應付，但如果遇到大環境的劇烈波動，目前的防禦可能稍顯吃力。建議跟芝心一起做個微調盤點，把地基打得更深更穩！"
         },
         C: {
             title: "輕薄級｜精緻蕾絲型",
-            img: "r3.png",
+            imgKey: "r3",
             desc: "<b>安全感指數：★☆☆☆☆</b><br><br>你看起來生活得自由精彩，但在財務保障上，目前推測防禦力就像精緻的蕾絲一樣——美麗卻經不起用力一碰。現在的你需要的是從最基礎的防禦開始蓋起。別擔心！找芝心一步步把漏洞補上，你也能擁有滿滿的安心感！"
         }
     };
@@ -351,7 +372,7 @@
         document.getElementById('progress-number').innerText = `${currentQuestionIndex + 1}/${questions.length}`;
         
         document.getElementById('question-text').innerText = currentQuestion.question;
-        document.getElementById('quiz-img').src = currentQuestion.img;
+        document.getElementById('quiz-img').src = imageUrls[currentQuestion.imgKey];
         
         const optionsContainer = document.getElementById('options-container');
         optionsContainer.innerHTML = '';
@@ -391,11 +412,10 @@
         
         const result = results[highestType];
         document.getElementById('result-title').innerText = result.title;
-        document.getElementById('result-img').src = result.img;
+        document.getElementById('result-img').src = imageUrls[result.imgKey];
         document.getElementById('result-desc').innerHTML = result.desc;
     }
 
-    // LINE 導流連結已更新為妳的帳號
     function redirectToLine() {
         window.location.href = "https://line.me/R/ti/p/@221hssks";
     }
