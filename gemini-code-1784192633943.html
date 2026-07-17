@@ -38,14 +38,13 @@
             border-radius: 30px;
             box-shadow: 0 16px 35px rgba(140, 126, 114, 0.08);
             padding: 25px 20px;
-            max-width: 450px; /* 稍微放寬卡片，讓整體更大器 */
+            max-width: 450px; 
             width: 100%;
             text-align: center;
             border: 2px solid #EFEAE2;
             position: relative;
         }
 
-        /* 頂部質感小標籤 */
         .brand-tag {
             font-size: 0.8rem;
             color: #D47A3B;
@@ -67,10 +66,9 @@
             line-height: 1.4;
         }
 
-        /* 放大插畫舞台與圖片 */
         .illustration-stage {
             width: 100%;
-            height: 300px; /* 從原本的 220px 放大到 300px */
+            height: 300px; 
             border-radius: 20px;
             margin-bottom: 22px;
             background: #FFFDFC;
@@ -85,13 +83,12 @@
         .custom-img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* 確保你的插圖完整呈現、不被切邊 */
-            padding: 5px; /* 減少內縮，讓圖片顯示比例更大 */
+            object-fit: contain; 
+            padding: 5px; 
             border-radius: 18px;
             transition: all 0.3s ease;
         }
 
-        /* Q版圓滾滾按鈕 */
         .btn {
             background: linear-gradient(135deg, #FFB03A, #FF8C00);
             color: white;
@@ -114,7 +111,6 @@
             box-shadow: 0 2px 5px rgba(255, 140, 0, 0.1);
         }
 
-        /* 可愛手帳感選項 */
         .option-btn {
             background: #FFFFFF;
             color: var(--text-main);
@@ -142,7 +138,6 @@
 
         .hidden { display: none; }
 
-        /* 進度條 */
         .progress-container {
             display: flex;
             align-items: center;
@@ -150,6 +145,7 @@
             margin-bottom: 20px;
             padding: 0 5px;
         }
+        
         .progress-bar-bg {
             height: 8px;
             background-color: #F5EFE6;
@@ -157,6 +153,7 @@
             width: 80%;
             overflow: hidden;
         }
+        
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, #FFB870, #FF8C00);
@@ -164,6 +161,7 @@
             border-radius: 10px;
             transition: width 0.3s ease;
         }
+        
         .progress-text {
             font-size: 0.85rem;
             color: #FF8C00;
@@ -207,12 +205,13 @@
 <body>
 
 <div class="card">
+    <!-- 開始畫面 -->
     <div id="start-screen">
         <span class="brand-tag">🍊 芝心人生夥伴 療癒企劃</span>
         <h1>安全感防禦人格檢測</h1>
         
         <div class="illustration-stage">
-            <img id="start-img" class="custom-img" src="" alt="開始插圖">
+            <img id="start-img" class="custom-img" src="start.png" alt="開始插圖">
         </div>
 
         <div class="intro-text">
@@ -224,6 +223,7 @@
         <div class="footer-text">© 芝心人生夥伴 | 陪你築起最穩固的財務地基</div>
     </div>
 
+    <!-- 測驗畫面 -->
     <div id="quiz-screen" class="hidden">
         <div class="progress-container">
             <div class="progress-bar-bg"><div id="progress" class="progress-fill"></div></div>
@@ -239,6 +239,7 @@
         <div class="footer-text">芝心陪著你，別緊張唷 🍊</div>
     </div>
 
+    <!-- 結果畫面 -->
     <div id="result-screen" class="hidden">
         <span class="brand-tag">🍊 芝心人生夥伴 診斷報告</span>
         <h2 style="color: var(--text-sub); margin-bottom: 5px; font-size: 0.9rem; font-weight: 500;">你專屬的防禦人格是</h2>
@@ -258,21 +259,156 @@
 </div>
 
 <script>
-    // 這裡已自動讀取妳提供的圖片，並將其轉換為 Base64 內嵌（為節省篇幅，此處以 JS 資料流完整載入）
-    const images = {
-        start: "/* 圖片數據已嵌入 */",
-        q1: "/* 圖片數據已嵌入 */",
-        q2: "/* 圖片數據已嵌入 */",
-        q3: "/* 圖片數據已嵌入 */",
-        q4: "/* 圖片數據已嵌入 */",
-        q5: "/* 圖片數據已嵌入 */",
-        q6: "/* 圖片數據已嵌入 */",
-        r1: "/* 圖片數據已嵌入 */",
-        r2: "/* 圖片數據已嵌入 */",
-        r3: "/* 圖片數據已嵌入 */"
+    // 題庫設定 (A: 銅牆鐵壁型, B: 彈性減震型, C: 蕾絲防護型)
+    const questions = [
+        {
+            question: "1. 當突然收到一筆意料之外的緊急支出帳單（例如修車或醫藥費），你的第一反應是？",
+            img: "q1.png",
+            options: [
+                { text: "完全不擔心，我有準備好絕對充足的緊急預備金。", type: "A" },
+                { text: "雖然有點心痛，但調整一下本月的娛樂開銷還過得去。", type: "B" },
+                { text: "瞬間壓力爆表，可能需要動用到信用卡分期或向人求助。", type: "C" }
+            ]
+        },
+        {
+            question: "2. 關於自己的醫療與意外保障，你的了解程度是？",
+            img: "q2.png",
+            options: [
+                { text: "非常清楚！每年固定盤點，連細節理賠額度都倒背如流。", type: "A" },
+                { text: "有買基本險種，大方向知道有保什麼，但細節不太確定。", type: "B" },
+                { text: "不太清楚，當初人情保或家人處理的，很久沒看了。", type: "C" }
+            ]
+        },
+        {
+            question: "3. 面對目前的日常開銷與未來的財務規劃，你通常怎麼理財？",
+            img: "q3.png",
+            options: [
+                { text: "嚴格執行記帳與配置，每月雷打不動先存下固定比例。", type: "A" },
+                { text: "有大致的儲蓄概念，剩下的錢才會拿來自由花費。", type: "B" },
+                { text: "活在當下，賺多少花多少，理財計畫常卡在第一步。", type: "C" }
+            ]
+        },
+        {
+            question: "4. 如果聊到「老後退休生活」或「長期被動收入」，你的想法是？",
+            img: "4.png",
+            options: [
+                { text: "已經開始透過工具打造月月現金流，防患於未然。", type: "A" },
+                { text: "有想過，但覺得還早，打算過幾年再來認真規劃。", type: "B" },
+                { text: "不敢想像，現在的薪水光應付眼前生活就很吃力了。", type: "C" }
+            ]
+        },
+        {
+            question: "5. 聽到身邊有朋友突然生大病或發生意外時，你內心第一個念頭通常是？",
+            img: "q5.png",
+            options: [
+                { text: "幸好我自己的保障做得很足，不用擔心這種萬一。", type: "A" },
+                { text: "會有點緊張，心想是不是該把自己的保單翻出來檢查一下？", type: "B" },
+                { text: "覺得很遺憾，但默默祈禱自己不會這麼倒楣。", type: "C" }
+            ]
+        },
+        {
+            question: "6. 你理想中的財務與生活狀態，最接近以下哪一種感覺？",
+            img: "q6.png",
+            options: [
+                { text: "萬無一失的絕對掌控感，做任何事都有底氣。", type: "A" },
+                { text: "隨遇而安的平衡感，既能享受當下又能兼顧未來。", type: "B" },
+                { text: "自由自在不受約束，船到橋頭自然直。", type: "C" }
+            ]
+        }
+    ];
+
+    // 結果報告設定
+    const results = {
+        A: {
+            title: "堡壘級｜銅牆鐵壁型",
+            img: "r1.png",
+            desc: "<b>安全感指數：★★★★★</b><br><br>你就像一座堅固的城堡，防禦力驚人！對於風險與財務，你習慣提前做好萬全準備。不過有時候繃得太緊也容易累，適度放鬆、或透過更聰明的配置打造月月被動收入，能讓你的地基不只穩固，還能長出漂亮的花園唷！"
+        },
+        B: {
+            title: "平衡級｜彈性減震型",
+            img: "r2.png",
+            desc: "<b>安全感指數：★★★☆☆</b><br><br>你擁有很棒的適應力，像氣墊一樣具備基礎的防護與緩衝能力。面對小風小浪可以輕鬆應付，但如果遇到大環境的劇烈波動，目前的防禦可能稍顯吃力。建議跟芝心一起做個微調盤點，把地基打得更深更穩！"
+        },
+        C: {
+            title: "輕薄級｜精緻蕾絲型",
+            img: "r3.png",
+            desc: "<b>安全感指數：★☆☆☆☆</b><br><br>你看起來生活得自由精彩，但在財務保障上，目前就像精緻的蕾絲一樣——美麗卻經不起用力一碰。現在的你需要的是從最基礎的防禦開始蓋起。別擔心！找芝心一步步把漏洞補上，你也能擁有滿滿的安心感！"
+        }
     };
-    
-    // (因圖片編碼極長，完整代碼已完美封裝至上方提供的 HTML 檔案中！)
+
+    let currentQuestionIndex = 0;
+    let scores = { A: 0, B: 0, C: 0 };
+
+    // 開始測驗
+    function startQuiz() {
+        document.getElementById('start-screen').classList.add('hidden');
+        document.getElementById('quiz-screen').classList.remove('hidden');
+        showQuestion();
+    }
+
+    // 顯示題目
+    function showQuestion() {
+        const currentQuestion = questions[currentQuestionIndex];
+        
+        // 更新進度條
+        const progressPercent = ((currentQuestionIndex + 1) / questions.length) * 100;
+        document.getElementById('progress').style.width = `${progressPercent}%`;
+        document.getElementById('progress-number').innerText = `${currentQuestionIndex + 1}/${questions.length}`;
+        
+        // 更新題目與圖片
+        document.getElementById('question-text').innerText = currentQuestion.question;
+        document.getElementById('quiz-img').src = currentQuestion.img;
+        
+        // 清空並渲染選項
+        const optionsContainer = document.getElementById('options-container');
+        optionsContainer.innerHTML = '';
+        
+        currentQuestion.options.forEach(option => {
+            const button = document.createElement('button');
+            button.className = 'option-btn';
+            button.innerText = option.text;
+            button.onclick = () => selectOption(option.type);
+            optionsContainer.appendChild(button);
+        });
+    }
+
+    // 選擇答案
+    function selectOption(type) {
+        scores[type]++;
+        currentQuestionIndex++;
+        
+        if (currentQuestionIndex < questions.length) {
+            showQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    // 顯示結果
+    function showResult() {
+        document.getElementById('quiz-screen').classList.add('hidden');
+        document.getElementById('result-screen').classList.remove('hidden');
+        
+        // 計算最高分的類型
+        let highestType = 'B';
+        let maxScore = -1;
+        for (const type in scores) {
+            if (scores[type] > maxScore) {
+                maxScore = scores[type];
+                highestType = type;
+            }
+        }
+        
+        const result = results[highestType];
+        document.getElementById('result-title').innerText = result.title;
+        document.getElementById('result-img').src = result.img;
+        document.getElementById('result-desc').innerHTML = result.desc;
+    }
+
+    // LINE 導流連結（請自行更換為妳的 LINE 官方帳號或個人 LINE 連結）
+    function redirectToLine() {
+        window.location.href = "https://line.me/R/ti/p/@你的LINEID";
+    }
 </script>
 </body>
 </html>
