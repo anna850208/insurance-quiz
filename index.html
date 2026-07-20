@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VR5R0EPD7D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- ======================================================== -->
+    <!-- 1. Google Analytics 4 (GA4) 流量追蹤代碼 (已更新為最新)    -->
+    <!-- ======================================================== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR5R0EPD7D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-VR5R0EPD7D');
-</script>
+      gtag('config', 'G-VR5R0EPD7D');
+    </script>
+    <!-- ======================================================== -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>財務地基大檢測</title>
@@ -62,11 +66,11 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 放大圖片顯示區域 */
+        /* 放大後的圖片顯示區域 */
         img.stage-img {
             width: 100%;
             height: auto;
-            max-height: 400px; /* 從 280px 調大到 400px */
+            max-height: 400px;
             object-fit: contain;
             margin-bottom: 20px;
             border-radius: 16px;
@@ -87,7 +91,6 @@
             padding: 0 10px;
         }
 
-        /* 答案選項按鈕 */
         .options-container {
             display: flex;
             flex-direction: column;
@@ -133,7 +136,7 @@
             box-shadow: 0 4px 10px rgba(255, 138, 128, 0.15);
         }
 
-        /* LINE 按鈕樣式 */
+        /* LINE 導流按鈕 */
         .btn-line {
             background-color: var(--line-green);
             box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
@@ -146,7 +149,6 @@
             transform: translateY(-2px);
         }
 
-        /* 進度條 */
         .progress-bar {
             width: 100%;
             height: 8px;
@@ -197,7 +199,7 @@
         <h1 id="result-title">計算中...</h1>
         <p class="desc" id="result-desc">檢測分析結果</p>
         
-        <!-- 引導至 LINE 官方帳號 -->
+        <!-- 引導至 LINE 官方帳號 (@221hssks) -->
         <a id="line-link" href="https://line.me/R/ti/p/@221hssks" target="_blank" class="btn btn-line">
             💬 領取詳細分析報告 ＆ 預約諮詢
         </a>
@@ -205,7 +207,7 @@
 </div>
 
 <script>
-    // 測驗題目資料庫（使用本機相對路徑）
+    // 測驗題目資料庫
     const questions = [
         {
             id: 1,
@@ -239,7 +241,7 @@
         },
         {
             id: 4,
-            image: "5.jpg", // 注意這張為 JPG
+            image: "5.jpg", 
             title: "Q4：妳夢想中的生活藍圖裡，不可或缺的是？",
             options: [
                 { text: "有源源不絕的被動收入，無後顧之憂地到處出國旅行", score: { A: 3, B: 2, C: 1 } },
@@ -269,7 +271,7 @@
         }
     ];
 
-    // 測驗結果資料庫（使用本機相對路徑）
+    // 測驗結果資料庫
     const results = {
         A: {
             title: "開拓冒險家 🔭",
@@ -291,7 +293,6 @@
     let currentQuestionIndex = 0;
     let scores = { A: 0, B: 0, C: 0 };
 
-    // 開始遊戲
     function startGame() {
         document.getElementById("start-screen").classList.add("hide");
         document.getElementById("quiz-screen").classList.remove("hide");
@@ -300,19 +301,14 @@
         showQuestion();
     }
 
-    // 顯示題目
     function showQuestion() {
         const q = questions[currentQuestionIndex];
-        
-        // 更新進度條
         const progressPercent = ((currentQuestionIndex) / questions.length) * 100;
         document.getElementById("progress-fill").style.width = `${progressPercent}%`;
 
-        // 填入題目內容
         document.getElementById("question-img").src = q.image;
         document.getElementById("question-title").innerText = q.title;
 
-        // 生成選項按鈕
         const optionsContainer = document.getElementById("options-container");
         optionsContainer.innerHTML = "";
         
@@ -325,14 +321,11 @@
         });
     }
 
-    // 選擇答案
     function selectOption(score) {
         for (let key in score) {
             scores[key] += score[key];
         }
-
         currentQuestionIndex++;
-        
         if (currentQuestionIndex < questions.length) {
             showQuestion();
         } else {
@@ -340,7 +333,6 @@
         }
     }
 
-    // 結算並顯示結果
     function showResult() {
         document.getElementById("quiz-screen").classList.add("hide");
         document.getElementById("result-screen").classList.remove("hide");
@@ -360,6 +352,11 @@
         document.getElementById("result-img").src = result.image;
         document.getElementById("result-title").innerText = `妳的財務人格：${result.title}`;
         document.getElementById("result-desc").innerText = result.desc;
+
+        // ✨ 自動帶入測驗結果訊息並跳轉最新 LINE 帳號
+        const lineBaseUrl = "https://line.me/R/oaMessage/@221hssks/?";
+        const shareText = encodeURIComponent(`哈囉芝心！我剛剛做完了財務地基檢測 🧱\n我測出來的財務人格是：【${result.title}】！\n我想跟妳領取我的專屬財務診斷建議 🚀`);
+        document.getElementById("line-link").href = lineBaseUrl + shareText;
     }
 </script>
 
