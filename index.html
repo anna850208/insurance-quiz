@@ -10,7 +10,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>財務地基大檢測</title>
+    <title>財務地基大檢測｜芝心人生夥伴</title>
     <style>
         :root {
             --primary-color: #FF8A80;
@@ -22,7 +22,26 @@
             --line-green-hover: #05B34B;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-color); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 15px; }
+        body { background-color: var(--bg-color); color: var(--text-color); display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 15px; }
+        
+        /* 專屬個人品牌頂部條 */
+        .brand-header {
+            width: 100%;
+            max-width: 500px;
+            background: linear-gradient(135deg, #FFE0DB 0%, #FFD1C9 100%);
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(255, 209, 201, 0.4);
+            border: 1px solid #FFC0B5;
+        }
+        .brand-logo { font-size: 16px; }
+        .brand-name { font-size: 14px; font-weight: bold; color: #D84315; letter-spacing: 1px; }
+        
         .container { background: var(--card-bg); border-radius: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); width: 100%; max-width: 500px; padding: 24px; text-align: center; overflow: hidden; position: relative; }
         .fade-in { animation: fadeIn 0.5s ease-in-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -39,9 +58,24 @@
         .progress-bar { width: 100%; height: 8px; background-color: #F0F0F0; border-radius: 4px; margin-bottom: 20px; overflow: hidden; }
         .progress-fill { height: 100%; background-color: var(--primary-color); width: 0%; transition: width 0.3s ease; }
         .hide { display: none !important; }
+        
+        /* 底部防盜版權標示 */
+        .brand-footer {
+            margin-top: 15px;
+            font-size: 11px;
+            color: #A0A0A0;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body>
+
+<!-- 每一頁都會看到的個人品牌 Banner -->
+<div class="brand-header">
+    <span class="brand-logo">🧚</span>
+    <span class="brand-name">芝心人生夥伴｜財務地基診斷師</span>
+</div>
+
 <div class="container" id="game-container">
     <div id="start-screen" class="fade-in">
         <img src="1.png" alt="開始畫面" class="stage-img">
@@ -59,9 +93,15 @@
         <img id="result-img" src="" alt="結果圖片" class="stage-img">
         <h1 id="result-title">計算中...</h1>
         <p class="desc" id="result-desc">檢測分析結果</p>
-        <a id="line-link" href="https://line.me/R/ti/p/@221hssks" target="_blank" class="btn btn-line">💬 領取詳細分析報告 ＆ 預約諮詢</a>
+        <a id="line-link" href="https://line.me/R/ti/p/@221hssks" target="_blank" class="btn btn-line">💬 領取詳細 analysis 報告 ＆ 預約諮詢</a>
     </div>
 </div>
+
+<!-- 底部防偽版權聲明 -->
+<div class="brand-footer">
+    © 2026 芝心人生夥伴 All Rights Reserved. 
+</div>
+
 <script>
     const questions = [
         { id: 1, image: "2.png", title: "Q1：如果突然發生了意外傷害，妳的第一反應是？", options: [ { text: "幸好我有買意外醫療險，不用擔心醫藥費", score: { A: 3, B: 1, C: 2 } }, { text: "慘了，這筆額外的開銷可能會卡死我下半月的預算", score: { A: 1, B: 3, C: 2 } }, { text: "只能先刷卡分期頂著，之後再打算", score: { A: 1, B: 2, C: 3 } } ] },
